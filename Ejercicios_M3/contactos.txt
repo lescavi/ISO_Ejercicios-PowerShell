@@ -1,0 +1,4 @@
+﻿nombre,apellidos,correo
+Agustín, Espinosa Minguet, aespinos@upvnet.upv.es
+Andrés, Terrasa Barrena, aterrasa@dsic.upv.es
+Agustín, Marzal Navarro, amarlop@miempresa.com

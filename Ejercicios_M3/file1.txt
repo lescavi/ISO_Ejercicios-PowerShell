@@ -1,0 +1,4 @@
+﻿empleado, rol, proyecto
+emp1,Ingeniero,ProyectoA
+emp2,Operador,ProyectoB
+emp3,Asistente,ProytectoA
