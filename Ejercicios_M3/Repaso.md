@@ -206,18 +206,18 @@ Switch ($n) {
 }
 
 3 {
-    echo "-- Crear un "".txt y abrir documento"" --" $a >> C:\Users\Lescavi\"MasCPU.txt" 
-    C:\Users\Lescavi\"MasCPU.txt"
+    echo "-- Crear un "".txt"" y abrir documento --" $a > C:\Users\Lescavi\"MasCPU.txt" 
+    Start C:\Users\Lescavi\"MasCPU.txt"
 }
 
 4 {
-    echo "-- Crear un "".html y abrir documento"" --" $a | ConvertTo-Html >> C:\Users\Lescavi\"MasCPU.html"
-    C:\Users\Lescavi\"MasCPU.html"
+    echo "-- Crear un "".html"" y abrir documento --" $a | ConvertTo-Html >> C:\Users\Lescavi\"MasCPU.html"
+    Start C:\Users\Lescavi\"MasCPU.html"
 }
 
 5 {
-    echo "-- Crear un "".csv y abrir documento"" --" $a >> C:\Users\Lescavi\"MasCPU.csv"
-    C:\Users\Lescavi\"MasCPU.csv"
+    echo "-- Crear un "".csv"" y abrir documento --" $a > C:\Users\Lescavi\"MasCPU.csv"
+    Start C:\Users\Lescavi\"MasCPU.csv"
 }
 
         Default {Write-Host "Esa opción no se encuentra en el menú"}
