@@ -1,4 +1,4 @@
-# -- WINDOWS POWERSHELL --
+# | WINDOWS POWERSHELL |
 
 ## - EJERCICIOS M3 L3 -
 
@@ -136,4 +136,3 @@ echo $x
 
 }
 ```
-

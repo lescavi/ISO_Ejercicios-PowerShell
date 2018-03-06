@@ -132,52 +132,149 @@ Agustín, Marzal Navarro, amarlop@miempresa.com
 
 1. ###### Necesitamos crear un script que pueda buscar el nombre de un usuario mediante entrada por teclado. El script debe pedirnos dicho nombre de teclado. 
 
-   ###### a 
 
+```
+$user = Read-Host "Usuario: "
+$file = Get-Content .\contactos.txt
+
+
+foreach ($a in $file){
+       echo $a | Select-String -Pattern "^$user"
+    }
+```
 
 
 2. ###### Realizad otro script o en el mismo, la búsqueda de los correos con extensión "upv.es". 
 
-   ######  
 
+```
+$file = Get-Content contactos.txt
+
+
+foreach ($a in $file){
+       $a | Select-String -Pattern "upv.es$"
+    }
+```
 
 
 3. ###### Realizad otro script o en el mismo, que muestre sólo las cuentas de correo por pantalla.
 
-   ###### 
+```
+$file = Get-Content contactos.txt
+
+foreach($a in $file){
+    $a -split "," | Select-String -Pattern "@"
+}
+```
 
 #### Ejercicio 2:
 
 1. ###### Codifica un script que cree una carpeta denominada C:\Proy-Pru . Puedes asumir que la carpeta todavía no existe.
 
-   ###### 
+
+```
+$a = Test-Path c:\proy-pru
+
+    if ($a -eq $true){
+
+        Write-Host "¡¡¡ Existe !!!"
+
+        }
+        else {
+
+        Write-Host "¿ No existe ?"
+
+    }
+```
+
+2. ###### Las carpetas se crean con el cmdlet `New-Item`. Tendrás que utilizar el parámetro `-itemType` para indicar que quieres crear una carpeta.
 
 
-2. ###### Las carpetas se crean con el cmdlet `New-Item`. Tendrás que utilizar el parámetro -itemType para indicar que quieres crear una carpeta.
-
-   ###### 
-
+```
+$a = New-Item -ItemType Directory "C:\Proy-Pru"
+    
+    Get-ChildItem c:\
+```
 
 3. ###### Una vez ejecutes el script la carpeta se habrá creado. Si lo ejecutas de nuevo se producirá un error porque la carpeta ya existe, así que tendrás que borrarla manualmente antes.
 
-   ###### 
+```
+$a = Remove-Item "C:\Proy-Pru"
+    
+    Get-ChildItem c:\
+```
 
 #### Ejercicio 3:
 
 ###### Codifica un script que muestre en pantalla si la carpeta `C:\Proy-Pru` existe o no. Puedes consultar la existencia de una carpeta con el cmdlet `Test-Path`
 
+```
+$a = Test-Path c:\proy-pru
 
+    if ($a -eq $true){
+
+        Write-Host "¡¡¡ Existe !!!"
+
+        }
+        else {
+
+        Write-Host "¿ No existe ?"
+
+    }
+```
 
 #### Ejercicio 4:
 
 1. ###### Codifica un script que elimine una carpeta denominada `C:\Proy-Pru`, incluidos todos sus archivos y subcarpetas. Puedes asumir que la carpeta existe.
 
-  ###### 
+```
+$a = Remove-Item "C:\Proy-Pru"
+    
+    Get-ChildItem c:\
+```
 
 2. ###### Las carpetas se eliminan con el cmdlet Remove-Item. Tendrás que utilizar el parámetro `-recurse` para indicar que quieres eliminar todo su posible contenido.
 
-  ###### 
+
+```
+$a = Remove-Item "C:\Proy-Pru" -Recurse
+    
+    Get-ChildItem c:\
+```
 
 3. ###### Para probar el script crea la carpeta y añade algunos archivos y subcarpetas. Una vez ejecutes el script la carpeta se habrá borrado. Si lo ejecutas de nuevo se producirá un error porque la carpeta ya no existe, así que tendrás que crearla manualmente antes.
 
+
+```
+$a = Test-Path c:\proy-pru
+
+    if ($a -eq $true){
+
+        Write-Host "¡¡¡ Existe !!!"
+
+        }
+        else {
+
+        Write-Host "¿ No existe ? ...pues creo una nueva !!!"
+
+$b = New-Item -ItemType Directory "C:\Proy-Pru"
+
+$a = Test-Path c:\proy-pru
+
+    if ($a -eq $true){
+
+        $c = New-Item -ItemType File "C:\Proy-Pru\file_11.txt"
+        $d = New-Item -ItemType File "C:\Proy-Pru\file_22.txt"
+
+        }
+        else {
+                
+        Write-Host "¡¡¡ No puedo crear archivos en una carpeta que no existe !!!"
+
+        }
+    
+    Get-ChildItem c:\
+
+    }
+```
 
