@@ -68,22 +68,19 @@ Write-Host ---------------------------------------------------------
 Write-Host
 Write-Host "Del directorio mostrado."
 Write-Host 
-$a = Read-Host "# Intrduce nombre de fichero"
-$b = Get-ChildItem C:\Users\Lescavi\Documents\ -Name $a
-#$c = Test-Path C:\Users\Lescavi\Documents\
+[String]$a = Read-Host "# Intrduce nombre de fichero"
+[String]$b = Get-ChildItem C:\Users\Lescavi\Documents\ -Name $a
 
 
 Write-Host
-foreach ($x in $b){
-       
-       write-host ---------------------------------------------------------
-       write-host
-       write-host "Fichero buscado: $a"
+foreach ($x in $b){   
 
-    }
+        if ($x -eq $a) {
 
-        Write-Host
-        if ($x -eq $b) {
+        write-host ---------------------------------------------------------
+        write-host
+        write-host "Fichero buscado: $a"
+        write-host
 
         Write-Host "- Fichero ""$x"" encontrado !!!"
         Write-Host
@@ -105,6 +102,8 @@ foreach ($x in $b){
         Write-Host "Ruta: ¿?¿?¿?¿?¿?¿?"
         Write-Host
         Write-Host "Comprueba que está bien escrito"
+
+    }
 
     }
 ```
